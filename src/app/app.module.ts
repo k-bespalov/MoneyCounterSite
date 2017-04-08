@@ -5,18 +5,23 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PartyListComponent } from './party-list/party-list.component';
+import { PartyItemComponent } from './party-item/party-item.component';
+import {PartiesAsyncService} from './shared/models/parties-async.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PartyListComponent
+    PartyListComponent,
+    PartyItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    PartiesAsyncService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
