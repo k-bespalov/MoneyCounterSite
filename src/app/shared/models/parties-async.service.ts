@@ -13,10 +13,12 @@ export class PartiesAsyncService {
   getParties() {
     return this.http.get('http://192.168.1.36:8000/parties')
       .map((res: Response) => res.json())
+      .map((data) => (data['parties']))
       .map((data) => {
-      return console.log('--- data', data);
-      })
-      .subscribe();
+      console.log(data);
+      return data;
+      });
+
   }
 
 }

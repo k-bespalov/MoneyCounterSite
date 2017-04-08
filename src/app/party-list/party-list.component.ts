@@ -20,7 +20,10 @@ export class PartyListComponent implements OnInit {
   }
 
   private try_get() {
-    this.partiesAsyncService.getParties();
+    this.partiesAsyncService.getParties()
+      .subscribe((data) => {
+      this.parties = data;
+      });
   }
 
 }

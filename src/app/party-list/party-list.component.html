@@ -6,3 +6,10 @@
   <div class="col-md-4">Платежи</div>
   <div class="col-md-4">Профиль</div>
 </div>
+<ul class="list">
+  <li
+    *ngFor="let party of parties"
+  >
+    <app-party-item [party]="party"></app-party-item>
+  </li>
+</ul>
