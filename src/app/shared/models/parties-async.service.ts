@@ -3,7 +3,7 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 // import {map} from 'rxjs/operator/map';
 
-// const BASE_URL = 'http://127.0.0.1:8000/parties';
+const BASE_URL = 'http://192.168.1.36:8000';
 
 @Injectable()
 export class PartiesAsyncService {
@@ -11,13 +11,22 @@ export class PartiesAsyncService {
   constructor(private http: Http) { }
 
   getParties() {
-    return this.http.get('http://192.168.1.36:8000/parties')
+    return this.http.get(`${BASE_URL}/parties`)
       .map((res: Response) => res.json())
       .map((data) => (data['parties']))
       .map((data) => {
       return data;
       });
 
+  }
+
+  getPartyDetail(id: number) {
+    return this.http.get(`${BASE_URL}/party${id}`)
+      .map((res: Response) => res.json())
+      .map((data) => {
+      // console.log(data);
+        return data;
+      });
   }
 
 }

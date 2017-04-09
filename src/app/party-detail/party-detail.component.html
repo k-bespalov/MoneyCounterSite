@@ -1,3 +1,27 @@
-<p>
-  party-detail works!
-</p>
+<!--<p>-->
+  <!--party-detail works!-->
+<!--</p>-->
+<div>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item"><h1>{{party?.name}}</h1></li>
+      <li class="list-group-item"><h2>{{party?.datetime}}</h2></li>
+      <li class="list-group-item"><h3>{{party?.place}}</h3></li>
+    </ul>
+  </div>
+  <div class="">
+      <button type="button" class="btn btn-lg btn-block" data-toggle="collapse" data-target="#participants">
+        Показать участников
+      </button>
+    <div class="collapse " id="participants">
+      <ul class="">
+        <li class="list-group-item" *ngFor="let person of party?.persons"
+          >
+          <div>
+          <h4>{{person?.first_name}} {{person?.last_name}}</h4>
+          </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>

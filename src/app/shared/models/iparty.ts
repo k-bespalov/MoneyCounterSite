@@ -8,3 +8,14 @@ export interface IParty {
   place: string;
   participants: number;
 }
+
+export interface PartyDetail {
+  id: number;
+  name: string;
+  datetime: Date;
+  place: string;
+  cost: number;
+  likes: number;
+  dislikes: number;
+  persons: Array<any>;
+}
