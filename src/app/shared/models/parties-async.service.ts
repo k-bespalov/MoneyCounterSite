@@ -15,7 +15,6 @@ export class PartiesAsyncService {
       .map((res: Response) => res.json())
       .map((data) => (data['parties']))
       .map((data) => {
-      console.log(data);
       return data;
       });
 

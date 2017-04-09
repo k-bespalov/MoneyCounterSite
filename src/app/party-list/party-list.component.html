@@ -1,15 +1,9 @@
-<p>
-  party-list works!
-</p>
-<div class="row">
-  <div class="col-md-4">Тусовки</div>
-  <div class="col-md-4">Платежи</div>
-  <div class="col-md-4">Профиль</div>
-</div>
-<ul class="list">
-  <li
-    *ngFor="let party of parties"
+<!--<p>-->
+  <!--party-list works!-->
+<!--</p>-->
+<div class="container">
+<div *ngFor="let party of parties"
   >
     <app-party-item [party]="party"></app-party-item>
-  </li>
-</ul>
+</div>
+</div>

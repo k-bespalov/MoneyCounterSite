@@ -1,14 +1,16 @@
-<a href="party/{{party.id}}" class="party">
-  <div>
-    <span>{{party.name}}</span>
+<div>
+  <a href="party/{{party.id}}" class="list-group-item">
     <div>
-      <span>{{party.datetime}}</span>
+      <h5 class="list-group-item-heading">{{party.name}}</h5>
+      <div>
+        <span>{{party.datetime}}</span>
+      </div>
+      <div>
+        <span>{{party.place}}</span>
+      </div>
+      <div>
+        <span>{{party.participants}} человек</span>
+      </div>
     </div>
-    <div>
-      <span>{{party.place}}</span>
-    </div>
-    <div>
-      <span>{{party.participants}} человек</span>
-    </div>
-  </div>
-</a>
+  </a>
+</div>

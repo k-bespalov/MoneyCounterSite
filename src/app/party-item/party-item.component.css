@@ -1,11 +1,33 @@
-.party {
-  display: block;
-  padding: 5px 7px 7px;
-  border-bottom: 1px solid #efefef;
-}
+/*.party {*/
+  /*display: block;*/
+  /*padding: 5px 7px 7px;*/
+  /*border-bottom: 1px solid #efd5d3;*/
+/*}*/
 
-a {
-  color: #4C6B8F;
-  text-decoration: none;
-  cursor: pointer;
-}
+/*a {*/
+  /*color: #4C6B8F;*/
+  /*text-decoration: none;*/
+  /*cursor: pointer;*/
+/*}*/
+
+
+/*@media (max-width: @screen-xs-max) {*/
+  /*h5 {*/
+    /*font-size: small;*/
+  /*}*/
+/*}*/
+/*@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {*/
+  /*h5 {*/
+    /*font-size: medium;*/
+  /*}*/
+/*}*/
+/*@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {*/
+  /*h5 {*/
+    /*font-size: large;*/
+  /*}*/
+/*}*/
+/*@media (min-width: @screen-lg-min) {*/
+  /*h5 {*/
+    /*font-size: x;*/
+  /*}*/
+/*}*/
