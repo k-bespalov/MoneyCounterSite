@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { PartyListComponent } from './party-list/party-list.component';
 import { PartyItemComponent } from './party-item/party-item.component';
 import {PartiesAsyncService} from './shared/models/parties-async.service';
+import { PartyDetailComponent } from './party-detail/party-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PartyListComponent,
-    PartyItemComponent
+    PartyItemComponent,
+    PartyDetailComponent
   ],
   imports: [
     BrowserModule,

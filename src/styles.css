@@ -2,4 +2,10 @@
 /*body {*/
   /*margin: 0;*/
 /*}*/
-@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+/*.navbar-header {*/
+  /*display: inline-block;*/
+/*}*/
+
+.navbar-right {
+  float: right;
+}
