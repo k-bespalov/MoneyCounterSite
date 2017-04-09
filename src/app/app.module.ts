@@ -8,13 +8,15 @@ import { PartyListComponent } from './party-list/party-list.component';
 import { PartyItemComponent } from './party-item/party-item.component';
 import {PartiesAsyncService} from './shared/models/parties-async.service';
 import { PartyDetailComponent } from './party-detail/party-detail.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PartyListComponent,
     PartyItemComponent,
-    PartyDetailComponent
+    PartyDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
