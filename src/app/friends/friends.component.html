@@ -1,0 +1,17 @@
+
+<div *ngFor="let friend of friends"
+>
+  <div class="simple_fit_item">
+    <div class="si_iwrap">
+      <a class="al_u140195205" href="/id{{friend.id}}">
+        <img src="http://0.0.0.0:8000/web_sphere/mysite/{{friend.photo}}" alt="Responsive image" class="img-circle img-responsive">
+      </a>
+    </div>
+    <div class="si_body">
+      <a class="si_owner al_u140195205 _u140195205" href="/id{{friend.id}}"><h2>{{friend.first_name}} {{friend.last_name}}</h2></a>
+      <b class="lvi"></b><div class="si_links">
+    </div>
+    </div>
+    <hr />
+  </div>
+</div>
