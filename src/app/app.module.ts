@@ -6,9 +6,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PartyListComponent } from './party-list/party-list.component';
 import { PartyItemComponent } from './party-item/party-item.component';
-import {PartiesAsyncService} from './shared/models/parties-async.service';
+import {AsyncService} from './shared/models/async.service';
 import { PartyDetailComponent } from './party-detail/party-detail.component';
 import { LoginComponent } from './login/login.component';
+import { FriendsComponent } from './friends/friends.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     PartyListComponent,
     PartyItemComponent,
     PartyDetailComponent,
-    LoginComponent
+    LoginComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule
   ],
   providers: [
-    PartiesAsyncService,
+    AsyncService,
   ],
   bootstrap: [AppComponent]
 })

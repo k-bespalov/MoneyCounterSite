@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 const BASE_URL = 'http://192.168.1.36:8000';
 
 @Injectable()
-export class PartiesAsyncService {
+export class AsyncService {
 
   constructor(private http: Http) { }
 
@@ -25,6 +25,16 @@ export class PartiesAsyncService {
       .map((res: Response) => res.json())
       .map((data) => {
       // console.log(data);
+        return data;
+      });
+  }
+
+  getFriends() {
+    return this.http.get(`${BASE_URL}/friends`)
+      .map((res: Response) => res.json())
+      .map((data) => (data['friends']))
+      .map((data) => {
+      console.log(data);
         return data;
       });
   }

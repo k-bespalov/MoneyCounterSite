@@ -9,7 +9,7 @@ export interface IParty {
   participants: number;
 }
 
-export interface PartyDetail {
+export interface IPartyDetail {
   id: number;
   name: string;
   datetime: Date;
@@ -17,5 +17,12 @@ export interface PartyDetail {
   cost: number;
   likes: number;
   dislikes: number;
-  persons: Array<any>;
+  persons: Array<Object>;
+}
+
+export interface IProfileItem {
+  id: string;
+  photo: string;
+  first_name: string;
+  last_name: string;
 }

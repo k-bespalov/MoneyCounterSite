@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IParty} from '../shared/models/iparty';
-import {PartiesAsyncService} from '../shared/models/parties-async.service';
+import {AsyncService} from '../shared/models/async.service';
 
 @Component({
   selector: 'app-party-list',
@@ -12,15 +12,15 @@ export class PartyListComponent implements OnInit {
 
   parties: IParty[] = [];
 
-  constructor(private partiesAsyncService: PartiesAsyncService) {
+  constructor(private _AsyncService: AsyncService) {
   }
 
   ngOnInit() {
-    this.try_get();
+    this.getPartyList();
   }
 
-  private try_get() {
-    this.partiesAsyncService.getParties()
+  private getPartyList() {
+    this._AsyncService.getParties()
       .subscribe((data) => {
       this.parties = data;
       });

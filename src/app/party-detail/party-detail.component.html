@@ -5,7 +5,7 @@
   <div>
     <ul class="list-group">
       <li class="list-group-item"><h1>{{party?.name}}</h1></li>
-      <li class="list-group-item"><h2>{{party?.datetime}}</h2></li>
+      <li class="list-group-item"><h2>{{party?.datetime |  date:"fullDate"}}</h2></li>
       <li class="list-group-item"><h3>{{party?.place}}</h3></li>
     </ul>
   </div>
