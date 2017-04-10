@@ -9,3 +9,7 @@
 .navbar-right {
   float: right;
 }
+
+.mwid {
+  max-width: 800px;
+}
