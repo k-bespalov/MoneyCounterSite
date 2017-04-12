@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs';
+import {CookieService} from 'angular2-cookie/core';
 // import {map} from 'rxjs/operator/map';
 
-const BASE_URL = 'http://192.168.1.36:8000';
+const BASE_URL = 'http://172.20.10.9:8000';
+// 'http://192.168.1.36:8000';
 
 @Injectable()
 export class AsyncService {
 
-  constructor(private http: Http) { }
+  public token: string;
+
+  constructor(private http: Http
+    // , private cookieService: CookieService
+  ) { }
 
   getParties() {
     return this.http.get(`${BASE_URL}/parties`)
@@ -16,7 +23,8 @@ export class AsyncService {
       .map((data) => (data['parties']))
       .map((data) => {
       return data;
-      });
+      })
+      .catch(this.handleError);
 
   }
 
@@ -26,7 +34,8 @@ export class AsyncService {
       .map((data) => {
       // console.log(data);
         return data;
-      });
+      })
+      .catch(this.handleError);
   }
 
   getFriends() {
@@ -34,9 +43,65 @@ export class AsyncService {
       .map((res: Response) => res.json())
       .map((data) => (data['friends']))
       .map((data) => {
-      console.log(data);
+      // console.log(data);
         return data;
-      });
+      })
+      .catch(this.handleError);
   }
+
+  private handleError(error: Response | any) {
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    return Observable.throw(errMsg);
+  }
+
+  // getToken() {
+  //   const token = document.querySelector('meta[property="csrf-token"]')['content'];
+  //   console.log(token);
+  //   return token;
+  // }
+
+  postLogin(data) {
+    // // const csrfToken: string = this.cookieService.get('XSRF-TOKEN');
+    // // data['csrfmiddlewaretoken'] = csrfToken;
+    // const headers = new Headers({ 'Content-Type': 'application/json'});
+    // const options = new RequestOptions({ headers: headers });
+    // return this.http.post(`${BASE_URL}/login/`, data, options);
+
+    const headers = new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    });
+    const options = new RequestOptions({
+      headers: headers
+    });
+    return this.http.post(`${BASE_URL}/login/`, data, options);
+      // .map((response: Response) => {
+      //   // login successful if there's a jwt token in the response
+      //   const token = response.json() && response.json().token;
+      //
+      //   if (token) {
+      //     // set token property
+      //     this.token = token;
+      //
+      //     // store username and jwt token in local storage to keep user logged in between page refreshes
+      //     localStorage.setItem('id_token', token);
+      //
+      //     // return true to indicate successful login
+      //     return true;
+      //   } else {
+      //     // return false to indicate failed login
+      //     return false;
+      //   }
+      // });
+
+  }
+
 
 }

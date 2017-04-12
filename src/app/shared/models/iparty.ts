@@ -26,3 +26,9 @@ export interface IProfileItem {
   first_name: string;
   last_name: string;
 }
+
+export interface ILogin {
+  csrfmiddlewaretoken?: string;
+  username: string;
+  password: string;
+}

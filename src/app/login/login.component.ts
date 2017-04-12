@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ILogin} from '../shared/models/iparty';
+import {AsyncService} from '../shared/models/async.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @Input() login: ILogin = {
+    username: '',
+    password: '',
+  };
+
+  constructor(private _AsyncService: AsyncService) { }
 
   ngOnInit() {
+  }
+
+  OnSubmit(value) {
+    console.log(value.value);
+    this._AsyncService.postLogin(JSON.stringify(value.value)).
+    subscribe();
   }
 
 }
