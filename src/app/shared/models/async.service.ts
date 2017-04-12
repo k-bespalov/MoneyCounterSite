@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs';
 import {CookieService} from 'angular2-cookie/core';
 // import {map} from 'rxjs/operator/map';
+declare const jQuery: any;
 
 const BASE_URL = 'http://172.20.10.9:8000';
 // 'http://192.168.1.36:8000';
@@ -16,6 +17,23 @@ export class AsyncService {
   constructor(private http: Http
     // , private cookieService: CookieService
   ) { }
+
+
+  getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
 
   getParties() {
     return this.http.get(`${BASE_URL}/parties`)
@@ -77,6 +95,7 @@ export class AsyncService {
     const headers = new Headers({
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'XSRF-TOKEN': this.getCookie('csrftoken'),
     });
     const options = new RequestOptions({
       headers: headers
