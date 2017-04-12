@@ -3,10 +3,11 @@ import {Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs';
 import {CookieService} from 'angular2-cookie/core';
-// import {map} from 'rxjs/operator/map';
+// // import {map} from 'rxjs/operator/map';
 declare const jQuery: any;
+// import $ from 'jquery';
 
-const BASE_URL = 'http://172.20.10.9:8000';
+const BASE_URL = 'http://192.168.1.36:8000';
 // 'http://192.168.1.36:8000';
 
 @Injectable()
