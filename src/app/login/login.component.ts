@@ -12,17 +12,28 @@ export class LoginComponent implements OnInit {
   @Input() login: ILogin = {
     username: '',
     password: '',
+    csrfmiddlewaretoken: ''
   };
 
   constructor(private _AsyncService: AsyncService) { }
 
   ngOnInit() {
+    this._AsyncService.getLogin()
+      .subscribe((csrf) => {
+        this.login.csrfmiddlewaretoken = csrf;
+      }
+
+    );
   }
 
   OnSubmit(value) {
-    console.log(value.value);
-    this._AsyncService.postLogin(JSON.stringify(value.value)).
-    subscribe();
+    // console.log(value.value);
+    this.login.username = value.value.username;
+    this.login.password = value.value.password;
+    console.log(this.login);
+    this._AsyncService.postLogin(JSON.stringify(this.login))
+    .subscribe();
+    this._AsyncService.getParties().subscribe();
   }
 
 }

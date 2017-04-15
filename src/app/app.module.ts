@@ -38,6 +38,10 @@ export class DefaultRequestOptions extends BaseRequestOptions {
   ],
   providers: [
     AsyncService,
+    {
+      provide: XSRFStrategy,
+      useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken')
+    }
   ],
   bootstrap: [AppComponent]
 })

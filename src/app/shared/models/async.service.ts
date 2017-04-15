@@ -7,7 +7,7 @@ import {CookieService} from 'angular2-cookie/core';
 declare const jQuery: any;
 // import $ from 'jquery';
 
-const BASE_URL = 'http://192.168.1.36:8000';
+const BASE_URL = 'http://127.0.0.1:8000';
 // 'http://192.168.1.36:8000';
 
 @Injectable()
@@ -37,10 +37,16 @@ export class AsyncService {
   }
 
   getParties() {
-    return this.http.get(`${BASE_URL}/parties`)
+    const headers = new Headers;
+    const options = new RequestOptions({
+      headers: headers,
+      withCredentials: true
+    });
+    return this.http.get(`${BASE_URL}/parties`, options)
       .map((res: Response) => res.json())
       .map((data) => (data['parties']))
       .map((data) => {
+       console.log(data);
       return data;
       })
       .catch(this.handleError);
@@ -94,12 +100,13 @@ export class AsyncService {
     // return this.http.post(`${BASE_URL}/login/`, data, options);
 
     const headers = new Headers({
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'XSRF-TOKEN': this.getCookie('csrftoken'),
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      // 'XSRF-TOKEN': this.getCookie('csrftoken'),
     });
     const options = new RequestOptions({
-      headers: headers
+      headers: headers,
+      withCredentials: true
     });
     return this.http.post(`${BASE_URL}/login/`, data, options);
       // .map((response: Response) => {
@@ -121,6 +128,20 @@ export class AsyncService {
       //   }
       // });
 
+  }
+
+  getLogin() {
+    const headers = new Headers;
+    const options = new RequestOptions({
+      headers: headers,
+      withCredentials: true
+    });
+    return this.http.get(`${BASE_URL}/login/`, options)
+      .map((res: Response) => {
+        const tmp = res.text().split('\'');
+        console.log(tmp[5]);
+        return tmp[5];
+      });
   }
 
 
