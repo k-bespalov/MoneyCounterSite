@@ -1,0 +1,35 @@
+
+
+h1 {
+  font-size: 40px;
+}
+
+li {
+  font-size: 30px;
+  /*width: 100px;*/
+}
+
+
+/* Экраны среднего размера */
+@media all and (max-width: 1200px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  li {
+    font-size: 20px;
+    /*width: 100px;*/
+  }
+}
+
+/* Маленькие экраны */
+@media all and (max-width: 900px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  li {
+    font-size: 15px;
+    /*width: 100px;*/
+  }
+}

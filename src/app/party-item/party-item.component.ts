@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IParty} from '../shared/models/iparty';
+import {IParty} from '../shared/models/imodels';
 
 @Component({
   selector: 'app-party-item',

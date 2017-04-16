@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AsyncService} from '../shared/models/async.service';
-import {IProfileItem} from '../shared/models/iparty';
+import {IProfileItem} from '../shared/models/imodels';
 
 @Component({
   selector: 'app-friends',

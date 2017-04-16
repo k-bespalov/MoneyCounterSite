@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ILogin} from '../shared/models/iparty';
+import {ILogin} from '../shared/models/imodels';
 import {AsyncService} from '../shared/models/async.service';
+import { AppModule } from '../app.module';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,6 @@ export class LoginComponent implements OnInit {
       .subscribe((csrf) => {
         this.login.csrfmiddlewaretoken = csrf;
       }
-
     );
   }
 

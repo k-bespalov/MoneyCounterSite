@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IParty} from '../shared/models/iparty';
+import {IParty} from '../shared/models/imodels';
 import {AsyncService} from '../shared/models/async.service';
 
 @Component({

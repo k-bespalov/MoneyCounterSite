@@ -1,15 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-/*body {*/
-  /*margin: 0;*/
-/*}*/
-/*.navbar-header {*/
-  /*display: inline-block;*/
-/*}*/
-
-.navbar-right {
-  float: right;
-}
-
-.mwid {
-  max-width: 600px;
+.center {
+  /*width: 200px; !* Ширина элемента в пикселах *!*/
+  /*padding: 10px; !* Поля вокруг текста *!*/
+  margin: auto; /* Выравниваем по центру */
 }

@@ -1,16 +1,35 @@
-<div>
-  <a href="party/{{party.id}}" class="list-group-item">
+<!--<div>-->
+  <!--<a href="party/{{party.id}}" class="list-group-item">-->
+    <!--<div>-->
+      <!--<h5 class="list-group-item-heading">{{party.name}}</h5>-->
+      <!--<div>-->
+        <!--<span>{{party.datetime}}</span>-->
+      <!--</div>-->
+      <!--<div>-->
+        <!--<span>{{party.place}}</span>-->
+      <!--</div>-->
+      <!--<div>-->
+        <!--<span>{{party.participants}} человек</span>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</a>-->
+<!--</div>-->
+
+    <a href="party/{{party.id}}">
+    <!--<img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">-->
+    <!--<h3>John Smith-->
+      <!--<small>Job Title</small>-->
+    <!--</h3>-->
+    <!--<p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
+    <h3 class="list-group-item-heading">{{party.name}}</h3>
     <div>
-      <h5 class="list-group-item-heading">{{party.name}}</h5>
-      <div>
-        <span>{{party.datetime}}</span>
-      </div>
-      <div>
-        <span>{{party.place}}</span>
-      </div>
-      <div>
-        <span>{{party.participants}} человек</span>
-      </div>
+      <span>{{party.datetime}}</span>
     </div>
-  </a>
-</div>
+    <div>
+      <span>{{party.place}}</span>
+    </div>
+    <div>
+      <span>{{party.participants}} человек</span>
+    </div>
+    </a>
+

@@ -23,8 +23,7 @@ export interface IPartyDetail {
 export interface IProfileItem {
   id: string;
   photo: string;
-  first_name: string;
-  last_name: string;
+  name: string;
 }
 
 export interface ILogin {

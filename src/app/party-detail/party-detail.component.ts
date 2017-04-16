@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AsyncService} from '../shared/models/async.service';
-import {IPartyDetail} from '../shared/models/iparty';
+import {IPartyDetail} from '../shared/models/imodels';
 
 @Component({
   selector: 'app-party-detail',

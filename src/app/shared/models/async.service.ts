@@ -2,23 +2,29 @@ import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs';
-import {CookieService} from 'angular2-cookie/core';
-// // import {map} from 'rxjs/operator/map';
+// import {CookieService} from 'angular2-cookie/core';
+// import {map} from 'rxjs/operator/map';
 declare const jQuery: any;
 // import $ from 'jquery';
 
 const BASE_URL = 'http://127.0.0.1:8000';
+  // 'http://127.0.0.1:8000';
 // 'http://192.168.1.36:8000';
 
 @Injectable()
 export class AsyncService {
+
+  headers = new Headers;
+  options = new RequestOptions({
+    headers: this.headers,
+    withCredentials: true
+  });
 
   public token: string;
 
   constructor(private http: Http
     // , private cookieService: CookieService
   ) { }
-
 
   getCookie(name) {
     let cookieValue = null;
@@ -37,12 +43,7 @@ export class AsyncService {
   }
 
   getParties() {
-    const headers = new Headers;
-    const options = new RequestOptions({
-      headers: headers,
-      withCredentials: true
-    });
-    return this.http.get(`${BASE_URL}/parties`, options)
+    return this.http.get(`${BASE_URL}/parties`, this.options)
       .map((res: Response) => res.json())
       .map((data) => (data['parties']))
       .map((data) => {
@@ -54,7 +55,7 @@ export class AsyncService {
   }
 
   getPartyDetail(id: number) {
-    return this.http.get(`${BASE_URL}/party${id}`)
+    return this.http.get(`${BASE_URL}/party${id}`, this.options)
       .map((res: Response) => res.json())
       .map((data) => {
       // console.log(data);
@@ -64,7 +65,7 @@ export class AsyncService {
   }
 
   getFriends() {
-    return this.http.get(`${BASE_URL}/friends`)
+    return this.http.get(`${BASE_URL}/friends`, this.options)
       .map((res: Response) => res.json())
       .map((data) => (data['friends']))
       .map((data) => {
@@ -99,16 +100,16 @@ export class AsyncService {
     // const options = new RequestOptions({ headers: headers });
     // return this.http.post(`${BASE_URL}/login/`, data, options);
 
-    const headers = new Headers({
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-      'Content-Type': 'application/x-www-form-urlencoded',
-      // 'XSRF-TOKEN': this.getCookie('csrftoken'),
-    });
-    const options = new RequestOptions({
-      headers: headers,
-      withCredentials: true
-    });
-    return this.http.post(`${BASE_URL}/login/`, data, options);
+    // const headers = new Headers({
+    //   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    //   'Content-Type': 'application/x-www-form-urlencoded',
+    //   // 'XSRF-TOKEN': this.getCookie('csrftoken'),
+    // });
+    // const options = new RequestOptions({
+    //   headers: headers,
+    //   withCredentials: true
+    // });
+    return this.http.post(`${BASE_URL}/login/`, data, this.options);
       // .map((response: Response) => {
       //   // login successful if there's a jwt token in the response
       //   const token = response.json() && response.json().token;
@@ -131,12 +132,7 @@ export class AsyncService {
   }
 
   getLogin() {
-    const headers = new Headers;
-    const options = new RequestOptions({
-      headers: headers,
-      withCredentials: true
-    });
-    return this.http.get(`${BASE_URL}/login/`, options)
+    return this.http.get(`${BASE_URL}/login/`, this.options)
       .map((res: Response) => {
         const tmp = res.text().split('\'');
         console.log(tmp[5]);

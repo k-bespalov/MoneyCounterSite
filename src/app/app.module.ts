@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {Injectable, ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import {Injectable, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {BaseRequestOptions, CookieXSRFStrategy, HttpModule, XSRFStrategy, Headers, RequestOptions} from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 import { PartyListComponent } from './party-list/party-list.component';
@@ -12,6 +13,9 @@ import { PartyDetailComponent } from './party-detail/party-detail.component';
 import { LoginComponent } from './login/login.component';
 import { FriendsComponent } from './friends/friends.component';
 import {CommonModule} from '@angular/common';
+import { PaymentsComponent } from './payments/payments.component';
+import { RepaymentsComponent } from './repayments/repayments.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @Injectable()
 export class DefaultRequestOptions extends BaseRequestOptions {
@@ -20,6 +24,22 @@ export class DefaultRequestOptions extends BaseRequestOptions {
   });
 }
 
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'parties', component: PartyListComponent },
+  { path: 'friends', component: FriendsComponent },
+  { path: '',   redirectTo: '/parties', pathMatch: 'full' },
+  // {
+  //   path: 'heroes',
+  //   component: HeroListComponent,
+  //   data: { title: 'Heroes List' }
+  // },
+  // { path: '',
+  //   redirectTo: '/heroes',
+  //   pathMatch: 'full'
+  // },
+  // { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -28,9 +48,13 @@ export class DefaultRequestOptions extends BaseRequestOptions {
     PartyItemComponent,
     PartyDetailComponent,
     LoginComponent,
-    FriendsComponent
+    FriendsComponent,
+    PaymentsComponent,
+    RepaymentsComponent,
+    ProfileComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -38,11 +62,12 @@ export class DefaultRequestOptions extends BaseRequestOptions {
   ],
   providers: [
     AsyncService,
-    {
-      provide: XSRFStrategy,
-      useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken')
-    }
+    // {
+    //   provide: XSRFStrategy,
+    //   useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken')
+    // }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

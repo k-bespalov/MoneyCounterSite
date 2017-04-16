@@ -1,0 +1,67 @@
+/* Большие экраны */
+.container_login {
+  max-width: 700px;
+  margin: auto;
+
+}
+h1 {
+  font-size: 60px;
+}
+
+input {
+  height: 50px;
+  font-size: 40px;
+  /*width: 100px;*/
+}
+
+button {
+  height: 50px;
+  font-size: 30px;
+}
+
+/* Экраны среднего размера */
+@media all and (max-width: 900px) {
+  .container_login {
+    /* Для экранов среднего размера мы выравниваем навигацию по центру,
+    равномерно распредляя свободное место между элементами */
+    justify-content: space-around;
+    max-width: 700px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+
+  input {
+    height: 40px;
+    font-size: 30px;
+    /*width: 100px;*/
+  }
+
+  button {
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+/* Маленькие экраны */
+@media all and (max-width: 600px) {
+  .container_login {
+    /* На маленьких экранах вместо строки мы располагаем элементы в столбце */
+    flex-direction: column;
+    max-width: 300px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+
+  input {
+    height: 40px;
+    font-size: 30px;
+    /*width: 100px;*/
+  }
+
+  button {
+    height: 40px;
+    font-size: 20px;
+  }
+}
