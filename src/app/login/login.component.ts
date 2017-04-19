@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ILogin} from '../shared/models/imodels';
 import {AsyncService} from '../shared/models/async.service';
-import { AppModule } from '../app.module';
+// import { AppModule } from '../app.module';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
     console.log(this.login);
     this._AsyncService.postLogin(JSON.stringify(this.login))
     .subscribe();
-    this._AsyncService.getParties().subscribe();
   }
 
 }

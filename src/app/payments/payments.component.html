@@ -1,3 +1,12 @@
-<p>
-  payments works!
-</p>
+<!--<p>-->
+  <!--payments works!-->
+<!--</p>-->
+<div *ngFor="let payment of payments" class="flex-container">
+  <figure class="highlight">
+  <span class="flex-item"><a href="/party{{payment?.party_id}}">{{payment?.party_name}}</a></span>
+  <span class="flex-item">{{payment?.cost}}</span>
+  <span class="flex-item">{{payment?.datetime}}</span>
+  <hr>
+  <span>{{payment?.description}}</span>
+  </figure>
+</div>

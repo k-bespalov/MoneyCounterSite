@@ -3,10 +3,12 @@
  */
 export interface IParty {
   id: number;
+  cost: number;
   name: string;
   datetime: Date;
   place: string;
   participants: number;
+  persons: Array<Object>;
 }
 
 export interface IPartyDetail {
@@ -26,8 +28,30 @@ export interface IProfileItem {
   name: string;
 }
 
+export interface IPayment {
+  datetime: Date;
+  party_name: string;
+  party_id: number;
+  description: string;
+  cost: number;
+}
+
+///////////////////////////////////////////////////////////////////////
+/////                                                           ///////
+/////                         POST                              ///////
+/////                                                           ///////
+///////////////////////////////////////////////////////////////////////
+
+
 export interface ILogin {
   csrfmiddlewaretoken?: string;
   username: string;
   password: string;
+}
+
+export interface IPostParty {
+  name: string;
+  date: Date;
+  time: Date;
+  place: string;
 }

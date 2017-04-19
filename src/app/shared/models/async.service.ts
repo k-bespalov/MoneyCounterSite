@@ -15,6 +15,9 @@ const BASE_URL = 'http://127.0.0.1:8000';
 export class AsyncService {
 
   headers = new Headers;
+  // ({
+  //   'Content-Type': 'application/x-www-form-urlencoded',
+  // });
   options = new RequestOptions({
     headers: this.headers,
     withCredentials: true
@@ -64,6 +67,17 @@ export class AsyncService {
       .catch(this.handleError);
   }
 
+  getPayments() {
+    return this.http.get(`${BASE_URL}/payments`, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => (data['payments']))
+      .map((data) => {
+        // console.log(data);
+        return data;
+      })
+      .catch(this.handleError);
+  }
+
   getFriends() {
     return this.http.get(`${BASE_URL}/friends`, this.options)
       .map((res: Response) => res.json())
@@ -92,6 +106,11 @@ export class AsyncService {
   //   console.log(token);
   //   return token;
   // }
+
+  postParty(data) {
+    return this.http.post(`${BASE_URL}/party/add`, data, this.options);
+  }
+
 
   postLogin(data) {
     // // const csrfToken: string = this.cookieService.get('XSRF-TOKEN');

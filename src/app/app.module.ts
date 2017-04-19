@@ -16,6 +16,7 @@ import {CommonModule} from '@angular/common';
 import { PaymentsComponent } from './payments/payments.component';
 import { RepaymentsComponent } from './repayments/repayments.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PartyAddComponent } from './party-add/party-add.component';
 
 @Injectable()
 export class DefaultRequestOptions extends BaseRequestOptions {
@@ -28,6 +29,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'parties', component: PartyListComponent },
   { path: 'friends', component: FriendsComponent },
+  { path: 'payments', component: PaymentsComponent },
+  { path: 'party/add', component: PartyAddComponent },
   { path: '',   redirectTo: '/parties', pathMatch: 'full' },
   // {
   //   path: 'heroes',
@@ -51,7 +54,8 @@ const appRoutes: Routes = [
     FriendsComponent,
     PaymentsComponent,
     RepaymentsComponent,
-    ProfileComponent
+    ProfileComponent,
+    PartyAddComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

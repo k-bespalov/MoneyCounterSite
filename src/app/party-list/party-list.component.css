@@ -1,0 +1,33 @@
+button {
+  max-width: 700px;
+  margin: auto;
+
+  height: 50px;
+  font-size: 30px;
+}
+
+.list-group-item {
+  width: 700px;
+  text-align: center;
+  margin: auto;
+}
+.list-group {
+  margin: auto;
+  text-align: center;
+}
+
+body {
+  background-color: #edeef0;
+}
+
+a{
+  text-decoration: none;
+  color: black; /* Цвет ссылок */
+}
+a:visited {
+  color: black; /* Цвет посещенных ссылок */
+}
+a:active {
+  color: black; /* Цвет активных ссылок */
+}
+

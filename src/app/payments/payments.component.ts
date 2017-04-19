@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {AsyncService} from '../shared/models/async.service';
+import {IPayment} from '../shared/models/imodels';
 
 @Component({
   selector: 'app-payments',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentsComponent implements OnInit {
 
-  constructor() { }
+  @Input() payments: IPayment[] = [];
+
+  constructor(private _AsyncService: AsyncService) { }
 
   ngOnInit() {
+    this.getPaymentsList();
+  }
+
+  private getPaymentsList() {
+    this._AsyncService.getPayments()
+      .subscribe((data) => {
+        this.payments = data;
+        console.log(data);
+      });
   }
 
 }

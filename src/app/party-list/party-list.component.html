@@ -2,10 +2,11 @@
   <!--party-list works!-->
 <!--</p>-->
 <!--<div>-->
-  <button type="button" class="btn btn-primary btn-lg btn-block">Добавить тусовку</button>
+<a href="/party/add"><button type="button" class="btn btn-primary btn-lg btn-block">Добавить тусовку</button></a>
 <!--</div>-->
-<div class="row">
-<<div class="col-lg-4 col-sm-6 text-center center" *ngFor="let party of parties"
+<br>
+<div class="list-group">
+<div class="" *ngFor="let party of parties"
   >
     <app-party-item [party]="party"></app-party-item>
 </div>

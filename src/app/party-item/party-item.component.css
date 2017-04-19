@@ -1,33 +1,29 @@
-/*.party {*/
-  /*display: block;*/
-  /*padding: 5px 7px 7px;*/
-  /*border-bottom: 1px solid #efd5d3;*/
-/*}*/
+/*@import "compass/css3";*/
 
-/*a {*/
-  /*color: #4C6B8F;*/
-  /*text-decoration: none;*/
-  /*cursor: pointer;*/
-/*}*/
+.list-group-iem {
+  text-align: center;
+  margin: auto;
+  max-width: 700px;
+  /*border: 2px solid #edeef0;*/
+  background-color: #F4EDF6;
+}
+  /*border-radius: 50px 50px;*/
+  /*border: 10px;*/
 
 
-/*@media (max-width: @screen-xs-max) {*/
-  /*h5 {*/
-    /*font-size: small;*/
-  /*}*/
-/*}*/
-/*@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {*/
-  /*h5 {*/
-    /*font-size: medium;*/
-  /*}*/
-/*}*/
-/*@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {*/
-  /*h5 {*/
-    /*font-size: large;*/
-  /*}*/
-/*}*/
-/*@media (min-width: @screen-lg-min) {*/
-  /*h5 {*/
-    /*font-size: x;*/
-  /*}*/
-/*}*/
+a{
+  text-decoration: none;
+  color: black; /* Цвет ссылок */
+}
+a:visited {
+  color: black; /* Цвет посещенных ссылок */
+}
+a:active {
+  color: black; /* Цвет активных ссылок */
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}

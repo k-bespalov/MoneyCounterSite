@@ -3,3 +3,7 @@
   /*padding: 10px; !* Поля вокруг текста *!*/
   margin: auto; /* Выравниваем по центру */
 }
+
+a{
+  text-decoration: none;
+}
