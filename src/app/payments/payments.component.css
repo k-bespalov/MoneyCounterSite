@@ -1,0 +1,38 @@
+.list-group-iem {
+  text-align: center;
+  margin: auto;
+  width: 700px;
+  /*border: 2px solid #edeef0;*/
+  background-color: #F4EDF6;
+}
+/*border-radius: 50px 50px;*/
+/*border: 10px;*/
+
+button {
+  max-width: 700px;
+  margin: auto;
+
+  height: 50px;
+  font-size: 30px;
+}
+.white {
+  background-color: white;
+}
+
+a{
+  text-decoration: none;
+  color: black; /* Цвет ссылок */
+  font-size: 25px;
+}
+a:visited {
+  color: black; /* Цвет посещенных ссылок */
+}
+a:active {
+  color: black; /* Цвет активных ссылок */
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}

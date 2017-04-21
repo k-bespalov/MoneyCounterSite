@@ -30,10 +30,11 @@ export interface IProfileItem {
 
 export interface IPayment {
   datetime: Date;
-  party_name: string;
+  party: string;
   party_id: number;
   description: string;
   cost: number;
+  persons: Array<Object>;
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -54,4 +55,10 @@ export interface IPostParty {
   date: Date;
   time: Date;
   place: string;
+}
+
+export interface IPostPayment {
+  id: number;
+  description: string;
+  cost: number;
 }

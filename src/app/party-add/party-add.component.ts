@@ -22,6 +22,7 @@ export class PartyAddComponent implements OnInit {
   }
 
   OnSubmit(value) {
+    // console.log(value.value.date);
     const tmp = value.value.date.split('-').concat(value.value.time.split(':'));
     const year = tmp[0];
     const month = tmp[1] - 1;
@@ -30,7 +31,7 @@ export class PartyAddComponent implements OnInit {
     const minutes = tmp[4];
     const date = new Date(year, month, day, hours, minutes);
     const data = Object.assign({}, { name: value.value.name}, {datetime: date}, {place: value.value.place});
-    console.log(data);
+    // console.log(data);
     this._AsyncService.postParty(JSON.stringify(data))
       .subscribe();
   }

@@ -21,7 +21,7 @@ export class PaymentsComponent implements OnInit {
     this._AsyncService.getPayments()
       .subscribe((data) => {
         this.payments = data;
-        console.log(data);
+        // console.log(data);
       });
   }
 

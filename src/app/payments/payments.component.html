@@ -1,12 +1,39 @@
 <!--<p>-->
   <!--payments works!-->
 <!--</p>-->
-<div *ngFor="let payment of payments" class="flex-container">
-  <figure class="highlight">
-  <span class="flex-item"><a href="/party{{payment?.party_id}}">{{payment?.party_name}}</a></span>
-  <span class="flex-item">{{payment?.cost}}</span>
-  <span class="flex-item">{{payment?.datetime}}</span>
-  <hr>
-  <span>{{payment?.description}}</span>
-  </figure>
+<a href="/payment/add"><button type="button" class="btn btn-primary btn-lg btn-block">Добавить платеж</button></a>
+<div *ngFor="let payment of payments" class="">
+  <!--<figure class="highlight">-->
+  <!--<span class="flex-item"><a href="/party{{payment?.party_id}}">{{payment?.party_name}}</a></span>-->
+  <!--<span class="flex-item">{{payment?.cost}}</span>-->
+  <!--<span class="flex-item">{{payment?.datetime}}</span>-->
+  <!--<hr>-->
+  <!--<span>{{payment?.description}}</span>-->
+  <!--</figure>-->
+
+  <div class="list-group-iem">
+    <!--<a href="party/{{party.id}}">-->
+    <div class=""><h1>
+      {{payment.datetime | date:"medium" }}
+    </h1>
+    </div>
+      <div class=""><h1>
+        {{payment.cost}}
+      </h1>
+      </div>
+      <div class="">
+        <a href="party/{{payment.party_id}}"> <span>{{payment.party}}</span></a>
+      </div>
+      <div>
+        <h3>{{payment.description}}</h3>
+      </div>
+      <div class="flex-container right">
+        <div class="photo flex-item" *ngFor="let person of payment.persons">
+          <img class="img-circle  img-center" width="75px" height="75px" src="{{ person?.photo }}" alt="">
+        </div>
+      </div>
+    <!--</a>-->
+    <br>
+  </div>
+  <br>
 </div>
