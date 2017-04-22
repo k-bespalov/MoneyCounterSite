@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IPostPayment} from '../shared/models/imodels';
 
 @Component({
   selector: 'app-payment-add',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-add.component.css']
 })
 export class PaymentAddComponent implements OnInit {
+
+  @Input() post_party: IPostPayment = {
+    id: 0,
+    description: '',
+    cost: 0
+  };
 
   constructor() { }
 

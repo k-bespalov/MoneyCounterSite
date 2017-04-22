@@ -16,18 +16,18 @@ button {
   text-align: center;
 }
 
-body {
-  background-color: #edeef0;
-}
+/*body {*/
+  /*background-color: #edeef0;*/
+/*}*/
 
 a{
   text-decoration: none;
-  color: black; /* Цвет ссылок */
+  color: white; /* Цвет ссылок */
+  font-size: 25px;
 }
 a:visited {
-  color: black; /* Цвет посещенных ссылок */
+  color: white; /* Цвет посещенных ссылок */
 }
 a:active {
-  color: black; /* Цвет активных ссылок */
+  color: white; /* Цвет активных ссылок */
 }
-

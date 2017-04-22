@@ -4,7 +4,7 @@
 
 <div class="container_login">
 
-  <form novalidate (ngSubmit)="OnSubmit(f)" #f="ngForm" class="form-signin" role="form">
+  <form novalidate (ngSubmit)="OnSubmit(f)" #f="ngForm" class="form-signin" role="form" autocomplete="off">
     <h1 class="form-signin-heading" data-replace-tmp-key="37b3dca3312939d1728ac08ec3f4a935">Пожалуйста, войдите</h1>
     <input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus=""
            [(ngModel)]="login.username" aria-required="true">

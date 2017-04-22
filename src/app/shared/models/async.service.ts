@@ -2,10 +2,6 @@ import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs';
-// import {CookieService} from 'angular2-cookie/core';
-// import {map} from 'rxjs/operator/map';
-declare const jQuery: any;
-// import $ from 'jquery';
 
 const BASE_URL = 'http://127.0.0.1:8000';
   // 'http://127.0.0.1:8000';
@@ -29,28 +25,12 @@ export class AsyncService {
     // , private cookieService: CookieService
   ) { }
 
-  getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = jQuery.trim(cookies[i]);
-        // Does this cookie string begin with the name we want?
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
-
   getParties() {
     return this.http.get(`${BASE_URL}/parties`, this.options)
       .map((res: Response) => res.json())
       .map((data) => (data['parties']))
       .map((data) => {
-       console.log(data);
+       // console.log(data);
       return data;
       })
       .catch(this.handleError);

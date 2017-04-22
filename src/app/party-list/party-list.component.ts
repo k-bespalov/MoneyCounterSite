@@ -23,7 +23,7 @@ export class PartyListComponent implements OnInit {
     this._AsyncService.getParties()
       .subscribe((data) => {
       this.parties = data;
-      console.log(data);
+      // console.log(data);
       });
   }
 

@@ -29,10 +29,11 @@ export class DefaultRequestOptions extends BaseRequestOptions {
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'parties', component: PartyListComponent },
-  { path: 'friends', component: FriendsComponent },
-  { path: 'payments', component: PaymentsComponent },
   { path: 'party/add', component: PartyAddComponent },
   { path: 'party/:id', component: PartyDetailComponent },
+  { path: 'payments', component: PaymentsComponent },
+  { path: 'payment/add', component: PaymentAddComponent },
+  { path: 'friends', component: FriendsComponent },
   { path: '',   redirectTo: '/parties', pathMatch: 'full' },
   // {
   //   path: 'heroes',

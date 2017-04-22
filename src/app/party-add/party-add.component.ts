@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IPostParty} from '../shared/models/imodels';
 import {AsyncService} from "../shared/models/async.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-party-add',
@@ -16,7 +17,8 @@ export class PartyAddComponent implements OnInit {
     place: ''
   };
 
-  constructor(private _AsyncService: AsyncService) { }
+  constructor(private _AsyncService: AsyncService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -33,7 +35,9 @@ export class PartyAddComponent implements OnInit {
     const data = Object.assign({}, { name: value.value.name}, {datetime: date}, {place: value.value.place});
     // console.log(data);
     this._AsyncService.postParty(JSON.stringify(data))
-      .subscribe();
+      .subscribe(() => {
+        this.router.navigate(['/parties']);
+      });
   }
 
 }

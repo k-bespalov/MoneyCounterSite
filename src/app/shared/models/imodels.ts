@@ -20,6 +20,7 @@ export interface IPartyDetail {
   likes: number;
   dislikes: number;
   persons: Array<Object>;
+  payments: Array<Object>;
 }
 
 export interface IProfileItem {
@@ -34,7 +35,6 @@ export interface IPayment {
   party_id: number;
   description: string;
   cost: number;
-  persons: Array<Object>;
 }
 
 ///////////////////////////////////////////////////////////////////////

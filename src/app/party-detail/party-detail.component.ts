@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AsyncService} from '../shared/models/async.service';
 import {IPartyDetail} from '../shared/models/imodels';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-party-detail',
@@ -10,12 +11,16 @@ import {IPartyDetail} from '../shared/models/imodels';
 export class PartyDetailComponent implements OnInit {
   @Input() party: IPartyDetail;
 
-
-
-  constructor(private _AsyncService: AsyncService) { }
+  constructor(
+    private _AsyncService: AsyncService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
-    this.getPartyDetail(1);
+    // this.route.params
+    //   .subscribe((params: Params) => this.getPartyDetail(+params['id']));
+    const id = +this.route.snapshot.params['id'];
+    this.getPartyDetail(id);
   }
 
   private getPartyDetail(id: number) {

@@ -5,23 +5,73 @@
   <div>
     <ul class="list-group">
       <li class="list-group-item"><h1>{{party?.name}}</h1></li>
-      <li class="list-group-item"><h2>{{party?.datetime |  date:"fullDate"}}</h2></li>
+      <li class="list-group-item"><h2>{{party?.datetime |  date:"medium"}}</h2></li>
       <li class="list-group-item"><h3>{{party?.place}}</h3></li>
     </ul>
   </div>
   <div class="">
-      <button type="button" class="btn btn-lg btn-block" data-toggle="collapse" data-target="#participants">
-        Показать участников
-      </button>
-    <div class="collapse " id="participants">
-      <ul class="">
-        <li class="list-group-item" *ngFor="let person of party?.persons"
-          >
+    <div class="flex-container">
+      <div class="flex-item container">
+        <div>
+          <h3>Платежи</h3>
           <div>
-          <h4>{{person?.first_name}} {{person?.last_name}}</h4>
+            <ul>
+              <li class="list-group-item" *ngFor="let payment of party?.payments"
+              > <div class="flex-container1">
+                <div class="flex-item">
+                  <h4>{{payment?.datetime | date:"medium"}}</h4>
+                </div>
+                <div class="flex-item">
+                  <h4>{{payment?.cost}}</h4>
+                </div>
+                <div class="flex-item">
+                  <h4>{{payment?.description}}</h4>
+                </div>
+                <div class="flex-item">
+                  <img class="img-circle img-center" width="75px" height="75px" src="{{payment.photo}}">
+                </div>
+              </div>
+              </li>
+            </ul>
           </div>
-          </li>
-      </ul>
-    </div>
+        </div>
+      </div>
+
+      <div class="flex-item container">
+        <div>
+          <h3>Участники</h3>
+        </div>
+        <div>
+          <ul>
+            <li class="list-group-item" *ngFor="let person of party?.persons"
+              >
+              <div>
+              <h4>{{person?.first_name}} {{person?.last_name}}</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
   </div>
 </div>
+
+
+
+
+<!--<button type="button" class="btn btn-lg btn-block" data-toggle="collapse" data-target="#participants">-->
+<!--Показать участников-->
+<!--</button>-->
+<!--<div class="collapse " id="participants">-->
+<!--<ul class="">-->
+<!--<li class="list-group-item" *ngFor="let person of party?.persons"-->
+<!--&gt;-->
+<!--<div>-->
+<!--<h4>{{person?.first_name}} {{person?.last_name}}</h4>-->
+<!--</div>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->

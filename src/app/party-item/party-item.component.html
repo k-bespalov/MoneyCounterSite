@@ -17,7 +17,7 @@
 
 
 <div class="list-group-iem">
-    <a href="party/{{party.id}}">
+    <a [routerLink]="['/party', party.id ]">
       <div class=""><h1>
         {{party.datetime | date:"medium"}}
       </h1>

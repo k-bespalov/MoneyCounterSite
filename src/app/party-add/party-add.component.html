@@ -1,7 +1,7 @@
 <!--<p>-->
 <!--party-add works!-->
 <!--</p>-->
-<form novalidate (ngSubmit)="OnSubmit(f)" #f="ngForm" class="form-addparty" role="form">
+<form novalidate (ngSubmit)="OnSubmit(f)" #f="ngForm" class="form-addparty" role="form" autocomplete="off">
   <div class="form-group">
     <label>Название тусовки</label>
     <input type="text" name="name" class="form-control" placeholder="" [(ngModel)]="post_party.name">

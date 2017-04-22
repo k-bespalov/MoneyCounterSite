@@ -1,7 +1,7 @@
 .list-group-iem {
   text-align: center;
   margin: auto;
-  width: 700px;
+  max-width: 700px;
   /*border: 2px solid #edeef0;*/
   background-color: #F4EDF6;
 }
@@ -29,6 +29,17 @@ a:visited {
 }
 a:active {
   color: black; /* Цвет активных ссылок */
+}
+
+.btn > a {
+  color: white;
+}
+
+.btn > a:active {
+  color: white;
+}
+.btn > a:visited {
+  color: white;
 }
 
 .flex-container {
