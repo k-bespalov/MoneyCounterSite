@@ -37,6 +37,11 @@ export interface IPayment {
   cost: number;
 }
 
+export interface IChooseParty {
+  id: number;
+  name: string;
+}
+
 ///////////////////////////////////////////////////////////////////////
 /////                                                           ///////
 /////                         POST                              ///////

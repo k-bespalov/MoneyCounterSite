@@ -58,6 +58,16 @@ export class AsyncService {
       .catch(this.handleError);
   }
 
+  getPartyVariants() {
+    return this.http.get(`${BASE_URL}/payment/add`, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => (data['parties']))
+      .map((data) => {
+        return data;
+      })
+      .catch(this.handleError);
+  }
+
   getFriends() {
     return this.http.get(`${BASE_URL}/friends`, this.options)
       .map((res: Response) => res.json())
@@ -89,6 +99,10 @@ export class AsyncService {
 
   postParty(data) {
     return this.http.post(`${BASE_URL}/party/add`, data, this.options);
+  }
+
+  postPayment(data) {
+    return this.http.post(`${BASE_URL}/payment/add`, data, this.options);
   }
 
 

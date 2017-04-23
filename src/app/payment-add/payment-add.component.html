@@ -1,16 +1,20 @@
-<!--<form novalidate (ngSubmit)="OnSubmit(f)" #f="ngForm" class="form-addparty" role="form" autocomplete="off">-->
-  <!--<div class="form-group">-->
-    <!--<label>Название тусовки</label>-->
-    <!--<input type="text" name="name" class="form-control" placeholder="" [(ngModel)]="post_party.name">-->
-  <!--</div>-->
-  <!--<div class="form-group">-->
-    <!--<label>Дата проведения</label>-->
-    <!--<input type="date" name="date" class="form-control" placeholder="" [(ngModel)]="post_party.date">-->
-    <!--<input type="time" name="time" class="form-control" [(ngModel)]="post_party.time">-->
-  <!--</div>-->
-  <!--<div class="form-group">-->
-    <!--<label>Место проведения</label>-->
-    <!--<input type="text" name="place" class="form-control" placeholder="" [(ngModel)]="post_party.place">-->
-  <!--</div>-->
-  <!--<button class="btn btn-lg btn-primary btn-block" type="submit" name="btnSubmit">Создать</button>-->
-<!--</form>-->
+<form novalidate (ngSubmit)="OnSubmit(f.value)" #f="ngForm" class="form-addparty" role="form" autocomplete="off">
+  <div class="form-group">
+    <label>Название тусовки</label>
+    <select name="id"  [(ngModel)]="post_payment.id">
+      <option *ngFor="let party of choose_party_list" value={{party.id}}>
+        {{ party.name }} </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Описание</label>
+    <input type="text" name="description" class="form-control" placeholder="Введите описание" [(ngModel)]="post_payment.description">
+  </div>
+  <div class="form-group">
+    <label>Стоимость</label>
+    <input type="number" name="cost" class="form-control" placeholder="Введите сумму" (ngModel)="post_payment.cost">
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnSubmit">Создать</button>
+</form>
+
+

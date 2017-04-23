@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
 
   OnSubmit(value) {
     // console.log(value.value);
-    this.login.username = value.value.username;
-    this.login.password = value.value.password;
+    this.login.username = value.username;
+    this.login.password = value.password;
     console.log(this.login);
     this._AsyncService.postLogin(JSON.stringify(this.login))
     .subscribe();
