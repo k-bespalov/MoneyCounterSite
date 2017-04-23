@@ -105,6 +105,16 @@ export class AsyncService {
     return this.http.post(`${BASE_URL}/payment/add`, data, this.options);
   }
 
+  getPayersList(id: number) {
+    return this.http.post(`${BASE_URL}/get/payers`, id, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => (data['payers']))
+      .map((data) => {
+        return data;
+      })
+      .catch(this.handleError);
+  }
+
 
   postLogin(data) {
     // // const csrfToken: string = this.cookieService.get('XSRF-TOKEN');

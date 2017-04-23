@@ -64,6 +64,7 @@ export interface IPostParty {
 
 export interface IPostPayment {
   id: number;
+  payers: Array<number>;
   description: string;
   cost: number;
 }

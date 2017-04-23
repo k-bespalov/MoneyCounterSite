@@ -12,10 +12,13 @@ export class PaymentAddComponent implements OnInit {
 
   @Input() post_payment: IPostPayment = {
     id: 0,
+    payers: [],
     description: '',
     cost: 0
   };
   @Input() choose_party_list: IChooseParty[] = [];
+
+  payers_list: Array<Object> = [];
 
   constructor(
     private _AsyncService: AsyncService,
@@ -35,14 +38,18 @@ export class PaymentAddComponent implements OnInit {
   }
 
   OnSubmit(value) {
-    if (value.id === 0 || value.description === '' ) {
-      alert('Выберите тусовку!');
-      return;
-    }
-    // console.log(value.id);
     this._AsyncService.postPayment(JSON.stringify(value))
       .subscribe(() => {
-        this.router.navigate(['/payments']);
+        // this.router.navigate(['/payments']);
+      });
+  }
+
+  OnChange(value) {
+    console.log(value);
+    this._AsyncService.getPayersList(value)
+      .subscribe((data) => {
+        this.payers_list = data;
+        console.log(this.payers_list);
       });
   }
 

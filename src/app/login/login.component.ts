@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ILogin} from '../shared/models/imodels';
 import {AsyncService} from '../shared/models/async.service';
+import {Router} from '@angular/router';
 // import { AppModule } from '../app.module';
 
 @Component({
@@ -16,7 +17,10 @@ export class LoginComponent implements OnInit {
     csrfmiddlewaretoken: ''
   };
 
-  constructor(private _AsyncService: AsyncService) { }
+  constructor(
+    private _AsyncService: AsyncService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this._AsyncService.getLogin()
@@ -27,12 +31,13 @@ export class LoginComponent implements OnInit {
   }
 
   OnSubmit(value) {
-    // console.log(value.value);
     this.login.username = value.username;
     this.login.password = value.password;
     console.log(this.login);
     this._AsyncService.postLogin(JSON.stringify(this.login))
-    .subscribe();
+      .subscribe(() => {
+        this.router.navigate(['/parties']);
+      });
   }
 
 }
