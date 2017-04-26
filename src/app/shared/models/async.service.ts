@@ -3,7 +3,6 @@ import {Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import {Observable} from 'rxjs';
-import {Router} from "@angular/router";
 
 const BASE_URL = 'http://127.0.0.1:8000';
   // 'http://127.0.0.1:8000';
@@ -25,7 +24,6 @@ export class AsyncService {
 
   constructor(
     private http: Http,
-    private router: Router
   ) { }
 
   getParties() {
@@ -86,7 +84,7 @@ export class AsyncService {
     return this.http.get(`${BASE_URL}/id/${id}`, this.options)
       .map((res: Response) => res.json())
       .map((data) => {
-        console.log(data);
+        // console.log(data);
         return data;
       })
       .catch(this.handleError);

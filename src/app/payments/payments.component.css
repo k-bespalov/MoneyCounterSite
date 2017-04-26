@@ -4,6 +4,7 @@
   max-width: 700px;
   /*border: 2px solid #edeef0;*/
   background-color: #F4EDF6;
+  padding: 20px;
 }
 /*border-radius: 50px 50px;*/
 /*border: 10px;*/
@@ -31,19 +32,21 @@ a:active {
   color: black; /* Цвет активных ссылок */
 }
 
-.btn > a {
-  color: white;
-}
-
-.btn > a:active {
-  color: white;
-}
-.btn > a:visited {
-  color: white;
-}
 
 .flex-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
+}
+
+.important:visited {
+  color: white !important;
+}
+
+.important:hover {
+  color: white !important;
+}
+
+.important {
+  color: white !important;
 }

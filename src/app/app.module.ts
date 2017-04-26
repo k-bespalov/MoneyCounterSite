@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Injectable, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {BaseRequestOptions, CookieXSRFStrategy, HttpModule, XSRFStrategy, Headers, RequestOptions} from '@angular/http';
+import {BaseRequestOptions, CookieXSRFStrategy, HttpModule, XSRFStrategy, Headers} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -37,16 +37,7 @@ const appRoutes: Routes = [
   { path: 'id/:id', component: PageProfileComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'friends', component: FriendsComponent },
-  { path: '',   redirectTo: '/parties', pathMatch: 'full' },
-  // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  // { path: '',
-  //   redirectTo: '/heroes',
-  //   pathMatch: 'full'
-  // },
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent }
 ];
 

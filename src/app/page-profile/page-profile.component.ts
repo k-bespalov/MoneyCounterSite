@@ -32,7 +32,6 @@ export class PageProfileComponent implements OnInit {
     this._AsyncService.changeFriendStatus(id)
       .subscribe(() => {
           this.profile.friend_status = !(this.profile.friend_status);
-          console.log(this.profile.friend_status);
         });
 
   }
