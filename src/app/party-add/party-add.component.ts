@@ -14,13 +14,25 @@ export class PartyAddComponent implements OnInit {
     name: '',
     date: new Date,
     time: new Date,
+    participants: [],
     place: ''
   };
+  friends: Array<Object> = [];
 
-  constructor(private _AsyncService: AsyncService,
-              private router: Router) { }
+  constructor(
+    private _AsyncService: AsyncService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.getPartyParticipants();
+  }
+
+  getPartyParticipants() {
+    this._AsyncService.getPartyParticipants()
+      .subscribe((data) => {
+      this.friends = data;
+      });
   }
 
   OnSubmit(value) {
@@ -32,7 +44,7 @@ export class PartyAddComponent implements OnInit {
     const hours = tmp[3];
     const minutes = tmp[4];
     const date = new Date(year, month, day, hours, minutes);
-    const data = Object.assign({}, { name: value.name}, {datetime: date}, {place: value.place});
+    const data = Object.assign({}, { name: value.name}, {datetime: date}, {place: value.place}, {participants: value.participants});
     // console.log(data);
     this._AsyncService.postParty(JSON.stringify(data))
       .subscribe(() => {

@@ -1,6 +1,9 @@
 /*a{*/
   /*text-decoration: none;*/
 /*}*/
+.navbar-brand {
+  color: white;
+}
 
 h1 {
   font-size: 40px;

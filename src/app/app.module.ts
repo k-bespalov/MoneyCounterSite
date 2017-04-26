@@ -18,6 +18,7 @@ import { RepaymentsComponent } from './repayments/repayments.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PartyAddComponent } from './party-add/party-add.component';
 import { PaymentAddComponent } from './payment-add/payment-add.component';
+import { PageProfileComponent } from './page-profile/page-profile.component';
 
 @Injectable()
 export class DefaultRequestOptions extends BaseRequestOptions {
@@ -33,6 +34,8 @@ const appRoutes: Routes = [
   { path: 'party/:id', component: PartyDetailComponent },
   { path: 'payments', component: PaymentsComponent },
   { path: 'payment/add', component: PaymentAddComponent },
+  { path: 'id/:id', component: PageProfileComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'friends', component: FriendsComponent },
   { path: '',   redirectTo: '/parties', pathMatch: 'full' },
   // {
@@ -59,7 +62,8 @@ const appRoutes: Routes = [
     RepaymentsComponent,
     ProfileComponent,
     PartyAddComponent,
-    PaymentAddComponent
+    PaymentAddComponent,
+    PageProfileComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

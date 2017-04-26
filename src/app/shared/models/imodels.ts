@@ -42,6 +42,20 @@ export interface IChooseParty {
   name: string;
 }
 
+export interface IMyProfile {
+  name: string;
+  favourite_goods: Array<string>;
+  photo: string;
+}
+
+export interface IProfile {
+  id?: number;
+  name: string;
+  friend_status?: boolean;
+  favourite_goods: Array<string>;
+  photo: string;
+}
+
 ///////////////////////////////////////////////////////////////////////
 /////                                                           ///////
 /////                         POST                              ///////
@@ -59,6 +73,7 @@ export interface IPostParty {
   name: string;
   date: Date;
   time: Date;
+  participants: Array<number>;
   place: string;
 }
 

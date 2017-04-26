@@ -4,10 +4,10 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12 col-lg-12">
               <div class="row">
-                <div class="col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
-                  <img class="img-circle img-responsive" src="{{profile?.photo}}">
+                <div class="">
+                  <img class="center img-circle img-responsive" width="250px" height="250px" src="{{profile?.photo}}">
                 </div>
               </div>
             </div>
@@ -16,14 +16,18 @@
             <div class="col-lg-12">
               <div class="row">
                 <div class="centered-text col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
-                  <div itemscope="" itemtype="http://schema.org/Person">
+                  <div class="text-center">
                     <h2> <span itemprop="name">{{profile?.name}}</span></h2>
                     <!--<p itemprop="jobTitle">Your Position</p>-->
                     <!--<p><span itemprop="affiliation">Your Company</span></p>-->
                     <!--<p>-->
-                      <!--<i class="fa fa-map-marker"></i> <span itemprop="addressRegion">Your City, Your State</span>-->
+                    <!--<i class="fa fa-map-marker"></i> <span itemprop="addressRegion">Your City, Your State</span>-->
                     <!--</p>-->
                     <!--<p itemprop="email"> <i class="fa fa-envelope"> </i> <a href="mailto:you@somedomain.com">you@somedomain.com</a> </p>-->
+                  </div>
+                  <div>
+                    <button class="btn btn-lg btn-primary btn-block" (click)="OnClick(profile?.id)" *ngIf="profile?.friend_status === true">Убрать из друзей</button>
+                    <button class="btn btn-lg btn-primary btn-block" (click)="OnClick(profile?.id)" *ngIf="profile?.friend_status ===  false">Добавить в друзья</button>
                   </div>
                 </div>
               </div>
@@ -34,7 +38,7 @@
               <hr>
               <div class="flex-container">
                 <div class="flex-item" *ngFor="let item of profile?.favourite_goods">
-                <h4>{{item}} &nbsp; </h4>
+                  <h4>{{item}} &nbsp; </h4>
                 </div>
               </div>
             </div>

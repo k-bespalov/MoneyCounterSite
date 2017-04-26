@@ -40,7 +40,7 @@ export class PaymentAddComponent implements OnInit {
   OnSubmit(value) {
     this._AsyncService.postPayment(JSON.stringify(value))
       .subscribe(() => {
-        // this.router.navigate(['/payments']);
+        this.router.navigate(['/payments']);
       });
   }
 

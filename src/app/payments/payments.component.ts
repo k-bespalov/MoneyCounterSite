@@ -11,7 +11,9 @@ export class PaymentsComponent implements OnInit {
 
   @Input() payments: IPayment[] = [];
 
-  constructor(private _AsyncService: AsyncService) { }
+  constructor(
+    private _AsyncService: AsyncService
+  ) { }
 
   ngOnInit() {
     this.getPaymentsList();

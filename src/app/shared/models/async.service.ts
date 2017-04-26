@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 import {Observable} from 'rxjs';
+import {Router} from "@angular/router";
 
 const BASE_URL = 'http://127.0.0.1:8000';
   // 'http://127.0.0.1:8000';
@@ -21,8 +23,9 @@ export class AsyncService {
 
   public token: string;
 
-  constructor(private http: Http
-    // , private cookieService: CookieService
+  constructor(
+    private http: Http,
+    private router: Router
   ) { }
 
   getParties() {
@@ -68,6 +71,54 @@ export class AsyncService {
       .catch(this.handleError);
   }
 
+  // getMyProfileId() {
+  //   return this.http.get(`${BASE_URL}/profile_id`, this.options)
+  //     .map((res: Response) => res.json())
+  //     .map((data) => (data['id']))
+  //     .map((data) => {
+  //       console.log(data);
+  //       return data;
+  //     })
+  //     .catch(this.handleError);
+  // }
+  //
+  getProfile(id: number) {
+    return this.http.get(`${BASE_URL}/id/${id}`, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => {
+        console.log(data);
+        return data;
+      })
+      .catch(this.handleError);
+  }
+  //
+  // getMyProfilePage() {
+  //  return this.getMyProfileId().concatMap((data1) => {
+  //     return this.getProfile(data1)
+  //       .catch(this.handleError);
+  //   });
+  // }
+
+  getMyProfile() {
+    return this.http.get(`${BASE_URL}/profile_id`, this.options)
+        .map((res: Response) => res.json())
+        .map((data) => (data['id']))
+        .map((data) => {
+          console.log(data);
+          return data;
+        });
+     //    })
+     //    .flatMap((id) => this.http.get(`${BASE_URL}/id/${id}`, this.options))
+     //    .map((res: Response) => {
+     //  console.log(res);
+     // return res.json(); })
+     //    .map((data) => {
+     //      console.log(data);
+     //      return data;
+     //    });
+  }
+
+
   getFriends() {
     return this.http.get(`${BASE_URL}/friends`, this.options)
       .map((res: Response) => res.json())
@@ -77,6 +128,22 @@ export class AsyncService {
         return data;
       })
       .catch(this.handleError);
+  }
+
+  getPartyParticipants() {
+    return this.http.get(`${BASE_URL}/party/add`, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => (data['friends']))
+      .map((data) => {
+        // console.log(data);
+        return data;
+      })
+      .catch(this.handleError);
+  }
+
+  changeFriendStatus(id: number) {
+    const obj = { 'id': id };
+    return this.http.post(`${BASE_URL}/change_friend_status`, JSON.stringify(obj), this.options);
   }
 
   private handleError(error: Response | any) {

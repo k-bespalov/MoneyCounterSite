@@ -12,8 +12,9 @@ export class PartyListComponent implements OnInit {
 
   parties: IParty[] = [];
 
-  constructor(private _AsyncService: AsyncService) {
-  }
+  constructor(
+    private _AsyncService: AsyncService
+  ) { }
 
   ngOnInit() {
     this.getPartyList();
