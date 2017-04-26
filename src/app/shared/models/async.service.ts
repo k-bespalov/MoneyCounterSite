@@ -223,7 +223,7 @@ export class AsyncService {
     return this.http.get(`${BASE_URL}/login/`, this.options)
       .map((res: Response) => {
         const tmp = res.text().split('\'');
-        console.log(tmp[5]);
+        // console.log(tmp[5]);
         return tmp[5];
       });
   }

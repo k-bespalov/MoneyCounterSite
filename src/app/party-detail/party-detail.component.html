@@ -6,6 +6,7 @@
       <li class="list-group-item"><h1>{{party?.name}}</h1></li>
       <li class="list-group-item"><h2>{{party?.datetime |  date:"medium"}}</h2></li>
       <li class="list-group-item"><h3>{{party?.place}}</h3></li>
+      <li class="list-group-item"><h3>{{party?.cost}} &#8381;</h3></li>
     </ul>
   </div>
   <div class="">
@@ -21,7 +22,7 @@
                   <h4>{{payment?.datetime | date:"medium"}}</h4>
                 </div>
                 <div class="flex-item">
-                  <h4>{{payment?.cost}}</h4>
+                  <h4>{{payment?.cost}} &#8381;</h4>
                 </div>
                 <div class="flex-item">
                   <h4>{{payment?.description}}</h4>
@@ -46,7 +47,7 @@
               >
               <div class="flex-container1">
               <div class="flex-item">
-              <h4>{{person?.first_name}} {{person?.last_name}}</h4>
+              <h4>{{person?.first_name}} {{person?.last_name}} &nbsp;</h4>
               </div>
                 <div class="flex-item">
                   <img class="img-circle img-center" width="50px" height="50px"  src="{{person?.photo}}">

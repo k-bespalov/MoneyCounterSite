@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ILogin} from '../shared/models/imodels';
 import {AsyncService} from '../shared/models/async.service';
 import {Router} from '@angular/router';
+import {IsLoginService} from '../shared/models/is-login.service';
 // import { AppModule } from '../app.module';
 
 @Component({
@@ -16,13 +17,16 @@ export class LoginComponent implements OnInit {
     password: '',
     csrfmiddlewaretoken: ''
   };
+  @Input() isLogin;
 
   constructor(
     private _AsyncService: AsyncService,
+    private _isLoginService: IsLoginService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.isLogin = true;
     this._AsyncService.getLogin()
       .subscribe((csrf) => {
         this.login.csrfmiddlewaretoken = csrf;
@@ -33,9 +37,9 @@ export class LoginComponent implements OnInit {
   OnSubmit(value) {
     this.login.username = value.username;
     this.login.password = value.password;
-    console.log(this.login);
     this._AsyncService.postLogin(JSON.stringify(this.login))
       .subscribe(() => {
+        this._isLoginService.updateStatus(true);
         this.router.navigate(['/parties']);
       });
   }

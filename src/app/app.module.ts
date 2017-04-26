@@ -19,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PartyAddComponent } from './party-add/party-add.component';
 import { PaymentAddComponent } from './payment-add/payment-add.component';
 import { PageProfileComponent } from './page-profile/page-profile.component';
+import {IsLoginService} from './shared/models/is-login.service';
 
 @Injectable()
 export class DefaultRequestOptions extends BaseRequestOptions {
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AsyncService,
+    IsLoginService,
     // {
     //   provide: XSRFStrategy,
     //   useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken')

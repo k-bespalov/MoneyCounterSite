@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {IsLoginService} from './shared/models/is-login.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!!!';
+
+  @Input() isLogin$;
+
+  constructor(
+    private _isLoginService: IsLoginService
+  ) {
+    _isLoginService.getStatus().subscribe((data) => this.isLogin$ = data);
+  }
+  // title = 'app works!!!';
+  // isLogin: boolean = false;
 }
