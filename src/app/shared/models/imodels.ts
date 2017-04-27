@@ -48,6 +48,14 @@ export interface IMyProfile {
   photo: string;
 }
 
+export interface IRepayment {
+  id?: number;
+  who_pays: Object;
+  which_party: Object;
+  price: number;
+  is_payed: boolean;
+}
+
 export interface IProfile {
   id?: number;
   name: string;

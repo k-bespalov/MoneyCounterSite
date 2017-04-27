@@ -35,6 +35,7 @@ const appRoutes: Routes = [
   { path: 'party/:id', component: PartyDetailComponent },
   { path: 'payments', component: PaymentsComponent },
   { path: 'payment/add', component: PaymentAddComponent },
+  { path: 'repayments', component: RepaymentsComponent },
   { path: 'id/:id', component: PageProfileComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'friends', component: FriendsComponent },

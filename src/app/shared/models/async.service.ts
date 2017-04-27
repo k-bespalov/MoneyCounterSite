@@ -139,6 +139,33 @@ export class AsyncService {
       .catch(this.handleError);
   }
 
+  getRepaymentsToMe() {
+    return this.http.get(`${BASE_URL}/to_me_repayments`, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => (data['to_me']))
+      .map((data) => {
+        // console.log(data);
+        return data;
+      })
+      .catch(this.handleError);
+  }
+
+  getRepaymentsFromMe() {
+    return this.http.get(`${BASE_URL}/from_me_repayments`, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => (data['from_me']))
+      .map((data) => {
+        // console.log(data);
+        return data;
+      })
+      .catch(this.handleError);
+  }
+
+  setPayed(id: number) {
+    const obj = { 'id': id };
+    return this.http.post(`${BASE_URL}/set_payed`, JSON.stringify(obj), this.options);
+  }
+
   changeFriendStatus(id: number) {
     const obj = { 'id': id };
     return this.http.post(`${BASE_URL}/change_friend_status`, JSON.stringify(obj), this.options);
