@@ -7,12 +7,13 @@ button {
 }
 
 .list-group-item {
-  width: 700px;
+  width: 100%;
   text-align: center;
   margin: auto;
 }
 .list-group {
   margin: auto;
+  /*width: 400px;*/
   text-align: center;
 }
 
@@ -22,12 +23,24 @@ button {
 
 a{
   text-decoration: none;
-  color: white; /* Цвет ссылок */
+  color: black; /* Цвет ссылок */
   font-size: 25px;
 }
 a:visited {
-  color: white; /* Цвет посещенных ссылок */
+  color: black; /* Цвет посещенных ссылок */
 }
 a:active {
-  color: white; /* Цвет активных ссылок */
+  color: black; /* Цвет активных ссылок */
+}
+
+.btn-primary {
+  color: black;
+  background-color: #f8ce02;
+  border-color: #f8ce02;
+}
+
+.btn-primary:hover {
+  color: black;
+  background-color: #cea602;
+  border-color: #f8ce02;
 }

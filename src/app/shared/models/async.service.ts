@@ -171,7 +171,7 @@ export class AsyncService {
     return this.http.post(`${BASE_URL}/change_friend_status`, JSON.stringify(obj), this.options);
   }
 
-  private handleError(error: Response | any) {
+  handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -181,6 +181,18 @@ export class AsyncService {
       errMsg = error.message ? error.message : error.toString();
     }
     return Observable.throw(errMsg);
+  }
+
+  sendText(text: string) {
+    const obj = { 'text': text };
+    return this.http.post(`${BASE_URL}/friends/find`, JSON.stringify(obj), this.options)
+      .map((res: Response) => res.json())
+      .map((data) => (data['results']))
+      .map((data) => {
+        // console.log(data);
+        return data;
+      })
+      .catch(this.handleError);
   }
 
   // getToken() {

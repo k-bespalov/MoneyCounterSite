@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     password: '',
     csrfmiddlewaretoken: ''
   };
-  @Input() isLogin;
+  // @Input() isLogin;
 
   constructor(
     private _AsyncService: AsyncService,
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isLogin = true;
+    this._isLoginService.updateStatus(false);
     this._AsyncService.getLogin()
       .subscribe((csrf) => {
         this.login.csrfmiddlewaretoken = csrf;

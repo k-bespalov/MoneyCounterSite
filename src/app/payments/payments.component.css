@@ -1,7 +1,7 @@
 .list-group-iem {
   text-align: center;
   margin: auto;
-  max-width: 700px;
+  width: 100%;
   /*border: 2px solid #edeef0;*/
   background-color: #F4EDF6;
   padding: 20px;
@@ -16,8 +16,17 @@ button {
   height: 50px;
   font-size: 30px;
 }
-.white {
-  background-color: white;
+
+.btn-primary {
+  color: black;
+  background-color: #f8ce02;
+  border-color: #f8ce02;
+}
+
+.btn-primary:hover {
+  color: black;
+  background-color: #cea602;
+  border-color: #f8ce02;
 }
 
 a{

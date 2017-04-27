@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AsyncService} from '../shared/models/async.service';
-import {IProfileItem} from '../shared/models/imodels';
+import {IFriendSearch, IProfileItem} from '../shared/models/imodels';
+import {FindFriendsService} from '../shared/models/find-friends.service';
 
 @Component({
   selector: 'app-friends',
@@ -10,10 +11,15 @@ import {IProfileItem} from '../shared/models/imodels';
 export class FriendsComponent implements OnInit {
 
   @Input() friends: IProfileItem[] = [];
+  @Input() results: IFriendSearch[] = [];
 
-  constructor(private _AsyncService: AsyncService ) { }
+  constructor(
+    private _AsyncService: AsyncService,
+    private _FindFriendsService: FindFriendsService,
+  ) { }
 
   ngOnInit() {
+    this.getResultsList();
     this.getFriendsList();
   }
 
@@ -22,6 +28,17 @@ export class FriendsComponent implements OnInit {
       .subscribe((data) => {
         this.friends = data;
       });
+  }
+
+  private getResultsList() {
+    this._FindFriendsService.searchFunction()
+      .flatMap((data) => {
+        // console.log(data);
+        return this._AsyncService.sendText(data);
+      }).subscribe((new_data) => {
+      this.results = new_data;
+      // console.log(new_data);
+    });
   }
 
 }

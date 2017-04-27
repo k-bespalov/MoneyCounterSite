@@ -2,7 +2,7 @@
   <!--{{title}}-->
 <!--</h1>-->
 <!-- Navigation -->
-<nav class="navbar navbar-inverse" role="navigation">
+<nav *ngIf="isLogin$" class="navbar navbar-inverse" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -53,19 +53,18 @@
     </div>
   </div>
 
-
-<hr>
-<div>
-<footer>
-<div class="row">
-  <div class="col-lg-6">
-    <p>Copyright &copy; Konstantin Bespalov 2017</p>
-  </div>
-  <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-</footer>
-</div>
+<!--<div class="navbar-bottom">-->
+<!--<hr>-->
+<!--<footer>-->
+<!--<div class="row">-->
+  <!--<div class="col-lg-6">-->
+    <!--<p>Copyright &copy; Konstantin Bespalov 2017</p>-->
+  <!--</div>-->
+  <!--&lt;!&ndash; /.col-lg-12 &ndash;&gt;-->
+<!--</div>-->
+<!--&lt;!&ndash; /.row &ndash;&gt;-->
+<!--</footer>-->
+<!--</div>-->
 
 
 

@@ -8,7 +8,7 @@ import {IsLoginService} from './shared/models/is-login.service';
 })
 export class AppComponent {
 
-  @Input() isLogin$;
+  @Input() isLogin$ = true;
 
   constructor(
     private _isLoginService: IsLoginService

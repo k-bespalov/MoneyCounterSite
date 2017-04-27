@@ -20,6 +20,7 @@ import { PartyAddComponent } from './party-add/party-add.component';
 import { PaymentAddComponent } from './payment-add/payment-add.component';
 import { PageProfileComponent } from './page-profile/page-profile.component';
 import {IsLoginService} from './shared/models/is-login.service';
+import {FindFriendsService} from './shared/models/find-friends.service';
 
 @Injectable()
 export class DefaultRequestOptions extends BaseRequestOptions {
@@ -56,7 +57,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     PartyAddComponent,
     PaymentAddComponent,
-    PageProfileComponent
+    PageProfileComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -68,6 +69,7 @@ const appRoutes: Routes = [
   providers: [
     AsyncService,
     IsLoginService,
+    FindFriendsService,
     // {
     //   provide: XSRFStrategy,
     //   useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken')

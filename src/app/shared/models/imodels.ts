@@ -64,6 +64,12 @@ export interface IProfile {
   photo: string;
 }
 
+export interface IFriendSearch {
+  id: number;
+  photo: string;
+  name: string;
+}
+
 ///////////////////////////////////////////////////////////////////////
 /////                                                           ///////
 /////                         POST                              ///////

@@ -1,3 +1,21 @@
+<div class="container">
+  <!--<input type="text" id="search">-->
+  <input type="text"  class="form-control" id="search" placeholder="Введите имя для поиска" autofocus="" aria-required="true">
+  <ul>
+    <li class="list-group-item" *ngFor="let result of results"
+    > <a [routerLink]="['/id', result.id ]">
+      <div class="flex-container">
+        <div class="flex-item">
+          <h4>{{result?.name}}</h4>
+        </div>
+        <div class="flex-item">
+          <img class="img-circle img-center" width="50px" height="50px" src="{{result?.photo}}">
+        </div>
+      </div>
+    </a>
+    </li>
+  </ul>
+</div>
 <div class="row" >
 <div class="centerblock center" *ngFor="let friend of friends"
 >

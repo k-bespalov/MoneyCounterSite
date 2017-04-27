@@ -1,14 +1,14 @@
 <div class="btn-group btn-group-justified center" role="group" aria-label="...">
   <div class="btn-group" role="group">
-    <button (click)="fromMe()" type="button" [disabled]="from_me_status" class="btn btn-default">Нужно отдать мне</button>
+    <button (click)="fromMe()" type="button" [disabled]="from_me_status" class="btn btn-default">Должен(на) я</button>
   </div>
   <div class="btn-group" role="group">
-    <button (click)="toMe()" type="button" [disabled]="to_me_status" class="btn btn-default">Должны отдать мне</button>
+    <button (click)="toMe()" type="button" [disabled]="to_me_status" class="btn btn-default">Должны мне</button>
   </div>
 </div>
 
 <div *ngIf="to_me_status">
-  <ul>
+  <ul class="list-group center">
     <li class="list-group-item" *ngFor="let repayment of to_me"
     > <div class="flex-container1">
       <div class="flex-item">
@@ -32,7 +32,7 @@
 </div>
 
 <div *ngIf="from_me_status">
-  <ul>
+  <ul class="list-group center">
     <li class="list-group-item" *ngFor="let repayment of from_me"
     > <div class="flex-container1">
       <div class="flex-item">
