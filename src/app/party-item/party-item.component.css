@@ -10,7 +10,9 @@
 }
   /*border-radius: 50px 50px;*/
   /*border: 10px;*/
-
+.img-circle {
+  padding: 5px;
+}
 
 a{
   text-decoration: none;

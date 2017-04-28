@@ -7,7 +7,7 @@
     <input type="text" name="name" class="form-control" placeholder="" [(ngModel)]="post_party.name">
   </div>
   <div>
-    <label>Выберите участиников</label>
+    <label>Выберите участников</label>
     <select multiple class="form-control" name="participants" [(ngModel)]="post_party.participants">
       <option *ngFor="let friend of friends" value={{friend.id}}>
         {{ friend.name }} </option>

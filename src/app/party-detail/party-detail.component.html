@@ -45,6 +45,7 @@
           <ul>
             <li class="list-group-item" *ngFor="let person of party?.persons"
               >
+              <a [routerLink]="['/id', person?.id]">
               <div class="flex-container1">
               <div class="flex-item">
               <h4>{{person?.first_name}} {{person?.last_name}} &nbsp;</h4>
@@ -53,6 +54,7 @@
                   <img class="img-circle img-center" width="50px" height="50px"  src="{{person?.photo}}">
                 </div>
               </div>
+              </a>
             </li>
           </ul>
         </div>
