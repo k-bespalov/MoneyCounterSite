@@ -12,8 +12,8 @@ export class PartyAddComponent implements OnInit {
 
   @Input() post_party: IPostParty = {
     name: '',
-    date: new Date,
-    time: new Date,
+    date: null,
+    time: null,
     participants: [],
     place: ''
   };

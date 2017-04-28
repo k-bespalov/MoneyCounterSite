@@ -49,7 +49,7 @@ export class PaymentAddComponent implements OnInit {
     this._AsyncService.getPayersList(value)
       .subscribe((data) => {
         this.payers_list = data;
-        console.log(this.payers_list);
+        // console.log(this.payers_list);
       });
   }
 
