@@ -18,6 +18,61 @@ button {
   font-size: 30px;
 }
 
+@media all and (max-width: 900px) {
+  .form-addparty {
+    /* Для экранов среднего размера мы выравниваем навигацию по центру,
+    равномерно распредляя свободное место между элементами */
+    justify-content: space-around;
+    max-width: 700px;
+  }
+  label {
+    font-size: 30px;
+  }
+
+  input {
+    height: 40px;
+    font-size: 30px;
+    /*width: 100px;*/
+  }
+
+  button {
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+/* Маленькие экраны */
+@media all and (max-width: 600px) {
+  .form-addparty {
+    /* На маленьких экранах вместо строки мы располагаем элементы в столбце */
+    flex-direction: column;
+    max-width: 300px;
+  }
+  label {
+    font-size: 20px;
+  }
+
+  input {
+    height: 40px;
+    font-size: 30px;
+    /*width: 100px;*/
+  }
+
+  button {
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+.error {
+  font-size: 13px;
+  color: #c7254e;
+  background: #f9f2f4;
+  border-radius: 3px;
+  padding: 15px;
+  margin: 0px 0 15px;
+}
+
 .btn-primary {
   color: black;
   background-color: #f8ce02;

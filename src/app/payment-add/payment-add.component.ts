@@ -11,10 +11,10 @@ import {Router} from '@angular/router';
 export class PaymentAddComponent implements OnInit {
 
   @Input() post_payment: IPostPayment = {
-    id: 0,
+    id: null,
     payers: [],
     description: '',
-    cost: 0
+    cost: null,
   };
   @Input() choose_party_list: IChooseParty[] = [];
 

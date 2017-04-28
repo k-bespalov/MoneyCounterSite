@@ -5,12 +5,18 @@
 <div class="container_login">
 
   <form novalidate (ngSubmit)="OnSubmit(f.value)" #f="ngForm" class="form-signin" role="form" autocomplete="off">
-    <h1 class="form-signin-heading" data-replace-tmp-key="37b3dca3312939d1728ac08ec3f4a935">Пожалуйста, войдите</h1>
-    <input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus=""
+    <h1 class="form-signin-heading">Пожалуйста, войдите</h1>
+    <input type="text" name="username" class="form-control" placeholder="Username" required autofocus=""
            [(ngModel)]="login.username" aria-required="true">
-    <input type="password" name="password" class="form-control" placeholder="Пароль" required=""
+    <div class="error" *ngIf="f.controls.username?.touched && f.controls.username?.errors?.required">
+      Это обязательное поле
+    </div>
+    <input type="password" name="password" class="form-control" placeholder="Пароль" required
            data-translatable-string="Password" [(ngModel)]="login.password" aria-required="true">
-    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnSubmit">Войти</button>
+    <div class="error" *ngIf="f.controls.password?.touched && f.controls.password?.errors?.required">
+      Это обязательное поле
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="f.invalid" name="btnSubmit">Войти</button>
   </form>
   <div>
   </div>
