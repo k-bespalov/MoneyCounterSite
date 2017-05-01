@@ -11,3 +11,4 @@
     <app-party-item [party]="party"></app-party-item>
 </div>
 </div>
+<button class="btn btn-primary btn-sm btn-block" *ngIf="hasNextPage" (click)="getPartyList(page_num)">Ещё</button>

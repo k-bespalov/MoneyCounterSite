@@ -44,3 +44,9 @@ a:active {
   background-color: #cea602;
   border-color: #f8ce02;
 }
+
+.btn-sm {
+  max-width: 300px;
+  height: 40px;
+  font-size: 23px;
+}

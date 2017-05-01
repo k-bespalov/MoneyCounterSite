@@ -11,20 +11,25 @@ export class PartyListComponent implements OnInit {
 
 
   parties: IParty[] = [];
+  page_num = 1;
+  hasNextPage = null;
 
   constructor(
     private _AsyncService: AsyncService
   ) { }
 
   ngOnInit() {
-    this.getPartyList();
+    this.getPartyList(1);
   }
 
-  private getPartyList() {
-    this._AsyncService.getParties()
+  private getPartyList(page: number) {
+    this._AsyncService.getParties(page)
       .subscribe((data) => {
-      this.parties = data;
-      // console.log(data);
+      this.parties = this.parties.concat(data['parties']);
+      this.page_num += 1;
+      this.hasNextPage = data['next_page'];
+       console.log(this.page_num);
+       console.log(this.hasNextPage);
       });
   }
 

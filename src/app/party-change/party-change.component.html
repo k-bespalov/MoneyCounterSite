@@ -1,0 +1,46 @@
+<form novalidate (ngSubmit)="OnSubmit(f.value)" #f="ngForm" class="form-addparty" role="form" autocomplete="off">
+  <div class="form-group">
+    <label><span>Название тусовки</span>
+    </label>
+    <input type="text" name="name" class="form-control" required placeholder="" [(ngModel)]="post_party.name">
+    <div class="error" *ngIf="f.controls.name?.touched && f.controls.name?.errors?.required">
+      Это обязательное поле
+    </div>
+  </div>
+  <div>
+    <label>Выберите участников</label>
+    <select multiple class="form-control" name="participants" [(ngModel)]="post_party.participants">
+      <option *ngFor="let friend of friends" value={{friend.id}}>
+        {{ friend.name }} </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Дата проведения</label>
+    <input type="date" name="date" class="form-control" required placeholder="" [(ngModel)]="post_party.date">
+    <div class="error" *ngIf="f.controls.date?.touched && f.controls.date?.errors?.required">
+      Это обязательное поле
+    </div>
+    <input type="time" name="time" class="form-control" required [(ngModel)]="post_party.time">
+    <div class="error" *ngIf="f.controls.time?.touched && f.controls.time?.errors?.required">
+      Это обязательное поле
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Место проведения</label>
+    <input type="text" name="place" class="form-control" required placeholder="" [(ngModel)]="post_party.place">
+    <div class="error" *ngIf="f.controls.place?.touched && f.controls.place?.errors?.required">
+      Это обязательное поле
+    </div>
+  </div>
+  <!--<div class="form-group">-->
+  <!--<label for="exampleInputFile">File input</label>-->
+  <!--<input type="file" id="exampleInputFile">-->
+  <!--<p class="help-block">Example block-level help text here.</p>-->
+  <!--</div>-->
+  <!--<div class="checkbox">-->
+  <!--<label>-->
+  <!--<input type="checkbox"> Check me out-->
+  <!--</label>-->
+  <!--</div>-->
+  <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="f.invalid" name="btnSubmit">Сохранить</button>
+</form>

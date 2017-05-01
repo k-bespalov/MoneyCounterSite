@@ -26,10 +26,12 @@ export class AsyncService {
     private http: Http,
   ) { }
 
-  getParties() {
-    return this.http.get(`${BASE_URL}/parties`, this.options)
+  getParties(page: number) {
+    // const params: URLSearchParams = new URLSearchParams();
+    // params.set('page', String(page));
+    return this.http.post(`${BASE_URL}/parties`, JSON.stringify({'page': page}), this.options)
       .map((res: Response) => res.json())
-      .map((data) => (data['parties']))
+      // .map((data) => (data['parties']))
       .map((data) => {
        // console.log(data);
       return data;
@@ -43,6 +45,17 @@ export class AsyncService {
       .map((res: Response) => res.json())
       .map((data) => {
       // console.log(data);
+        return data;
+      })
+      .catch(this.handleError);
+  }
+
+
+  getPartyForChange(id: number) {
+    return this.http.get(`${BASE_URL}/party_change${id}`, this.options)
+      .map((res: Response) => res.json())
+      .map((data) => {
+        // console.log(data);
         return data;
       })
       .catch(this.handleError);
@@ -203,6 +216,10 @@ export class AsyncService {
 
   postParty(data) {
     return this.http.post(`${BASE_URL}/party/add`, data, this.options);
+  }
+
+  changeParty(data, id: number) {
+    return this.http.post(`${BASE_URL}/party_change${id}`, data, this.options);
   }
 
   postPayment(data) {

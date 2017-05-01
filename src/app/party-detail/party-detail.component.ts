@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class PartyDetailComponent implements OnInit {
   @Input() party: IPartyDetail;
+  id: number;
 
   constructor(
     private _AsyncService: AsyncService,
@@ -20,6 +21,7 @@ export class PartyDetailComponent implements OnInit {
     // this.route.params
     //   .subscribe((params: Params) => this.getPartyDetail(+params['id']));
     const id = +this.route.snapshot.params['id'];
+    this.id = id;
     this.getPartyDetail(id);
   }
 

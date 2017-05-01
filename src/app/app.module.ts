@@ -21,6 +21,7 @@ import { PaymentAddComponent } from './payment-add/payment-add.component';
 import { PageProfileComponent } from './page-profile/page-profile.component';
 import {IsLoginService} from './shared/models/is-login.service';
 import {FindFriendsService} from './shared/models/find-friends.service';
+import { PartyChangeComponent } from './party-change/party-change.component';
 
 @Injectable()
 export class DefaultRequestOptions extends BaseRequestOptions {
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   { path: 'parties', component: PartyListComponent },
   { path: 'party/add', component: PartyAddComponent },
   { path: 'party/:id', component: PartyDetailComponent },
+  { path: 'party/change/:id', component: PartyChangeComponent },
   { path: 'payments', component: PaymentsComponent },
   { path: 'payment/add', component: PaymentAddComponent },
   { path: 'repayments', component: RepaymentsComponent },
@@ -58,6 +60,7 @@ const appRoutes: Routes = [
     PartyAddComponent,
     PaymentAddComponent,
     PageProfileComponent,
+    PartyChangeComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
